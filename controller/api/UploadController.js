@@ -32,7 +32,7 @@ class UploadController {
 
       res.json({
         code: constant.RESULT_CODE.UPLOAD_ERR.code,
-        msg: '上传失败, 文件不存在'
+        msg: '上传失败, key文件不存在'
       });
       return;
     }
@@ -104,7 +104,7 @@ class UploadController {
 
       res.json({
         code: constant.RESULT_CODE.UPLOAD_ERR.code,
-        msg: '上传失败, 文件不存在'
+        msg: '上传失败, key文件不存在'
       });
       return;
     }
@@ -136,9 +136,9 @@ class UploadController {
   
     /* 阿里云 上传文件 */
     //let result = await store.put(destFile, localFile)
-    let result =  store.multipartUpload(destFile, localFile, {
+    let result =  await store.multipartUpload(destFile, localFile, {
       parallel: 4,
-      partSize: 2 * 1024 * 1024,
+      partSize: 100 * 1024,
       progress: asyncProcess
 
     })

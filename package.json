@@ -1,11 +1,12 @@
 {
-  "name": "exp-proj",
+  "name": "exp-server",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=exp-proj:* node ./bin/www",
+    "start": "DEBUG=exp-server:* node ./bin/www",
     "eslint": "eslint .",
-    "fix": "eslint --fix ."
+    "lint": "eslint bin/www controller dbhelper model routes utils ",
+    "fix": "eslint --fix bin/www controller dbhelper model routes utils"
   },
   "dependencies": {
     "ali-oss": "^6.0.1",
